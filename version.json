@@ -1,0 +1,5 @@
+{
+  "version": "1.0.1",
+  "build": 101,
+  "bin": "https://raw.githubusercontent.com/ahmedaaa8-bot/esp01-ota/main/firmware.bin"
+}
