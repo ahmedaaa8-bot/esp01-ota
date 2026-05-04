@@ -1,7 +1,7 @@
 {
-   "version": "1.0.6",
-   "build": 106,
+   "version": "1.0.7",
+   "build": 107,
    "bin": "https://raw.githubusercontent.com/ahmedaaa8-bot/esp01-ota/main/firmware.bin",
    "md5": "",
-   "notes": "Short update note"
+   "notes": "test update"
  }
