@@ -40,11 +40,11 @@
 
 // Firmware Version Control
 // Change only these two lines for every new firmware release.
-#define FW_VERSION         "1.2.30"
-#define FW_BUILD           1230
+#define FW_VERSION         "1.2.32"
+#define FW_BUILD           1232
 #define FW_NAME            "Ahmed Monem Smart Control System "
 #define FW_DEVICE_NAME     "Weather and Control "
-#define FW_FULL_NAME       "ِAhmed Control System 00201004608852  . V1.2.30 "
+#define FW_FULL_NAME       "ِAhmed Control System +201004608852  . V1.2.32 "
 
 // GitHub Auto OTA Update Settings
 #define ENABLE_AUTO_UPDATE 1     // 1 = Check GitHub for newer firmware / 0 = OFF.
@@ -2236,7 +2236,7 @@ void sendHomePage() {
   // Root page is intentionally very small so ESP-01 can always answer fast,
   // even in Local Mode or when internet/weather/GitHub services are unavailable.
   String html = htmlHeader("ESP01 Lite Home");
-  html += F("<div class='card'><h1>AHMED MONEM SYSTEM</h1><div class='sub'>Fast loading page. Design By Ahmed Monem / 00201004608852.</div>");
+  html += F("<div class='card'><h1>AHMED MONEM SYSTEM</h1><div class='sub'>Fast loading page. Design By Ahmed Monem / +201004608852.</div>");
   html += F("<div class='row'><span class='k'>User</span><span class='v'>"); html += currentWebUserName(); html += F("</span></div>");
   html += F("<div class='row'><span class='k'>Role</span><span class='v'>"); html += roleName(currentWebRole); html += F("</span></div>");
   html += F("<div class='row'><span class='k'>Network</span><span class='v'>"); html += networkStatusText(); html += F("</span></div>");
@@ -2286,7 +2286,7 @@ void sendDashboardPage() {
 
   String html = htmlHeader("ESP01 OTA Pro");
   html += F("<div class='card'><h1>AHMED MONEM Controller</h1>");
-  html += F("<div class='sub'>Secure professional OTA + WiFi Manager panel. Upload only a valid compiled <b>.bin</b> firmware file 00201004608852.</div>");
+  html += F("<div class='sub'>Secure professional OTA + WiFi Manager panel. Upload only a valid compiled <b>.bin</b> firmware file +201004608852.</div>");
   html += F("<div class='row'><span class='k'>Current User</span><span class='v'>"); html += currentWebUserName(); html += F("</span></div>");
   html += F("<div class='row'><span class='k'>Login Role</span><span class='v'>"); html += roleName(currentWebRole); html += F("</span></div>");
   html += F("<div class='row'><span class='k'>Last Login</span><span class='v'>"); html += String(lastLoginUser); html += F(" / "); html += String(lastLoginIp); html += F("</span></div>");
@@ -2307,7 +2307,7 @@ void sendDashboardPage() {
   html += F("<div class='row'><span class='k'>GitHub OTA</span><span class='v'>"); html += lastAutoUpdateMessage; html += F("</span></div>");
   html += F("<div class='row'><span class='k'>Auto Check</span><span class='v'>Boot + every 1 hour</span></div>");
   html += F("<div class='row'><span class='k'>Signal</span><span class='v'>"); html += (WiFi.status() == WL_CONNECTED ? String(WiFi.RSSI()) + String(" dBm") : String("-")); html += F("</span></div>");
-  html += F("<a class='btn btn2' href='/checkupdate'>Check GitHub Update</a>");
+  html += F("<a class='btn btn2' href='/checkupdate'>Check Ahmed Device Update</a>");
   html += F("<a class='btn btn2' href='/users'>User Management</a>");
   }
   html += F("</div>");
@@ -2654,8 +2654,8 @@ void handleAutoUpdateCheck() {
 void handleManualUpdateCheck() {
   if (!requireRole(WEB_ROLE_ADMIN)) return;
   bool ok = runAutoUpdateCheck(true);
-  String html = htmlHeader("GitHub Update Check");
-  html += F("<div class='card'><h1>GitHub Update Check</h1>");
+  String html = htmlHeader("Ahmed Device Update Check");
+  html += F("<div class='card'><h1>Ahmed Device Update Check</h1>");
   html += F("<div class='sub'>Current firmware: <b>"); html += FW_FULL_NAME; html += F("</b> / build <b>"); html += String(FW_BUILD); html += F("</b></div>");
   html += F("<div class='msg "); html += ok ? F("ok") : F("warn"); html += F("'>"); html += lastAutoUpdateMessage; html += F("</div>");
   html += F("<div class='sub'>Protected by web login. Optional JSON fields supported: <b>md5</b> and <b>notes</b>. For rollback, point version.json to an older known-good firmware and use a higher build number.</div>");
