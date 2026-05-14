@@ -1,6 +1,6 @@
 {
-   "version": "1.2.43",
-   "build": 1243,
+   "version": "1.2.42",
+   "build": 1242,
    "bin": "https://raw.githubusercontent.com/ahmedaaa8-bot/esp01-ota/main/firmware.bin",
    "md5": "",
    "notes": "test update"
